@@ -1,0 +1,192 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+<html>
+<head>
+<title>Blood bank Signin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta http-equiv="expires" content="0"/> 
+
+<link rel="stylesheet" type="text/css" href="http://smartreach.admaxim.com/smart/css/styles.css"></link>
+
+<link rel="stylesheet" type="text/css" media="all" href="http://smartreach.admaxim.com/smart/css/dirtyOldUglyFix.css" />
+
+
+<style>
+a:link { color: white; }
+a:visited { color: white; }
+.login-page {
+  width: 360px;
+  padding-top:150px;
+  padding-left:165px;
+  margin: auto;
+}
+.login-div {
+  position: relative;
+  z-index: 1;
+  max-width: 360px;
+  height: 200px;
+  width:184px;
+  text-align:center;
+}
+.form input {
+	height:25px; 
+	width:175px; 
+	text-align:center; 
+	border-radius: 4px;
+  	margin:2px;
+  	font-size: 15px;
+}
+.form button {
+	font-family:Arial,Helvetica,sans-serif; 
+	font-size:15px;
+	padding: 5px;
+	margin-top:10px;
+	width: 80px;
+  	padding: 5px;
+  	cursor: pointer;
+}
+
+</style>
+</head>
+<body style="background-color:#222931; no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size:cover; -o-background-size: cover;   background-size: 100% 100%;" onLoad="getDashboad(); MM_preloadImages('images10/buttons/login-over.png'); document.getElementById('loginForm:userName').focus(); checkBrowser();" >
+
+ 
+
+<form id="loginForm" name="loginForm" method="post" action="/smart/login.jsf" enctype="application/x-www-form-urlencoded">
+
+<div style="" >
+	<div class="logo"><img src="logo.png" style="height:50px;padding-left: 35px;padding-top: 35px;"/></div>
+	<div class="login-page">
+	  	<div class="form">
+	    	<div class="login-div">
+	  			<p style="color:#FFFFFF; font-family:Arial,Helvetica,sans-serif; font-size:16px; padding-bottom:5px; display:none;">SMARTREACH ACCESS</p>
+	  			<div class="errMsgYellow" id="errDiv" style="text-align:justify;">
+					
+				</div>
+	      		<input id="loginId" type="text" placeholder="username"/>
+	      		<input id="loginPwd" type="password" placeholder="password" style="margin-bottom: 5px;"/>
+	      		<!-- <a href="#" style="color:#FFFFFF; font-family:Arial,Helvetica,sans-serif; font-size:12px; ">Forgot password?</a><br> -->
+				
+				<div style="width:184px; padding:5px 0 0 3px; text-align:left;">
+					<p style="font-family:Arial,Helvetica,sans-serif; font-size:12px;"> 
+						Forgot <a href="./verifyEmail.jsf">Username</a> / 
+						
+							
+				
+<a href="#" onclick="return oamSubmitForm('loginForm','loginForm:_idJsp0');" id="loginForm:_idJsp0">Password</a>?
+					</p>
+	
+					<p style="font-family:Arial,Helvetica,sans-serif; font-size:12px; padding-top:5px;">
+						
+							
+						<a href="signup.html" target="">Create Account</a>
+						
+					</p>
+				</div>		  	
+				<input id='htmlLoginButton' type="button" onClick="login();" value="Login" style="margin-top:10px;padding-bottom:3px;width:75px; display:table-row;"/>
+				<img id='htmlLoginWait' src="images10/processing_blackBg.gif" style="padding-top: 10px; display:none;">
+	    	</div>
+	  	</div>
+	</div>
+</div>
+  
+<div id="maincontainer" style="clear:both; padding:80px 1px 90px 1px; display:none;" align="center">
+
+<input type="hidden" id="loginForm:hidCountryName" name="loginForm:hidCountryName" value="" />
+<input type="hidden" id="loginForm:ipAddress" name="loginForm:ipAddress" value="" />
+<input type="hidden" value=Pakistan id="countryName" />
+<input type="hidden" value=202.163.79.15 id="hidIP" />
+
+<table width="50%" border="0" cellspacing="0" cellpadding="0" style="background-color:#FFFFFF; border: 1px solid #999999;">
+  <tr>
+	<td align="left" class="labelBlue_14" style="font-family:Arial; color:#FFFFFF; font-size: 24pt; padding-top:10px; font-weight: bold; background-color: #666666; padding-left:10px;">
+		<img class="logo" src="images10/logo_transparent.png" style="height: 80;width: 175px;"/>
+	</td>	
+  </tr>
+  <tr>
+    <td align="center" class="tValue">&nbsp;
+		
+	</td>
+  </tr>
+  <tr>
+	<td align="center" style="color: #555555; font-size: 40px; font-family: tahoma; padding-bottom: 10px;">
+		Login
+	</td>
+  </tr>
+  <tr>
+  	<td align="center">
+		<table width="40%" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+			<td align="left">
+				<span class="tLabel_10" id="userNameSpan">User Name</span>
+			</td>
+		  </tr>
+		  <tr>
+			<td align="left">
+				<input id="loginForm:userName" name="loginForm:userName" type="text" value="" size="24" class="inputText_grey_17" />
+			</td>
+		  </tr>
+		  <tr>
+			<td align="left" style="padding-top:15px;">
+				<span class="tLabel_10" id="passwordSpan">Password</span>
+			</td>
+		  </tr>
+		  <tr>
+			<td align="left">
+				<input type="password" id="loginForm:password" name="loginForm:password" size="15" style="font: large Verdana,sans-serif;" class="inputText_grey_17" /> 
+			</td>
+		  </tr>
+		  <tr style="display:block;">
+			<td align="left" style="padding: 10px 0px;">
+				<input type="checkbox" name="loginForm:rememberMe" id="loginForm:rememberMe" value="true" />
+				<span style="color: black;font-size: 13px;"> Keep me signed in</span>
+			</td>
+		  </tr>
+		  <tr>
+			<td align="center" style="padding:20px 0px 10px 0px;">
+				<input type="hidden" id="loginForm:browser" name="loginForm:browser" value="" />
+				
+				
+			
+				<input id="loginForm:submit" name="loginForm:submit" type="image" src="images10/buttons/login-base.png" onclick="if(typeof window.clearFormHiddenParams_loginForm!='undefined'){clearFormHiddenParams_loginForm('loginForm');}" onmousemove="MM_swapImage_4JsfButton('submit','images10/buttons/login-over.png')" onmouseout="MM_swapImage_4JsfButton('submit','images10/buttons/login-base.png')" />
+			</td>
+		  </tr>
+  		</table>  
+	</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</div>
+<input type="hidden" name="loginForm_SUBMIT" value="1" /><input type="hidden" name="loginForm:_idcl" /><input type="hidden" name="loginForm:_link_hidden_" /><script type="text/javascript"><!--
+
+	function clear_loginForm()
+	{
+		clearFormHiddenParams_loginForm('loginForm');
+	}
+	
+	function clearFormHiddenParams_loginForm(currFormName)
+	{
+		var f = document.forms['loginForm'];
+		f.elements['loginForm:_idcl'].value='';
+		f.elements['loginForm:_link_hidden_'].value='';
+		f.target='';
+	}
+	
+	clearFormHiddenParams_loginForm();
+//--></script><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAhfaWQxNzk4OXB0AAovbG9naW4uanNw" /></form>
+    
+</body>
+</html>
